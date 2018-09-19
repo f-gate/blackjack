@@ -36,7 +36,7 @@ $cards = array (
  * @param string $cards picks from $cards array
  * @param string $suits picks from $suits array
  *
- * ???
+ * NEED TO TURN THIS INTO A SINGLE DRAW FUNCTION.
  */
 function cardpicker($cards, $suits)
 {
@@ -59,29 +59,40 @@ function cardpicker($cards, $suits)
         $card2_string = $card2 . $suit2;
 
     }
-    return $card1_value + $card2_value ;
+    return $card1_value + $card2_value ." $card2_string " . " $card1_string "; //swap these
 }
+
 
 $dealer_value = cardpicker($cards, $suits);
 $player_value = cardpicker($cards, $suits);
 echo "<br>";
 
-echo 'player: ' . $player_value . "<br>" . 'dealer: ' . $dealer_value . "<br>";
 
 
+function calcwinner($player_score, $dealer_score) {
+    switch (TRUE) {
+        case $player_score > $dealer_score;
+        echo "player wins!";
+        break;
 
-if ($player_value > $dealer_value){
-    echo 'player wins!' ;
+        case $dealer_score > $player_score;
+        echo 'dealer wins!';
+        break;
+
+        case $dealer_score == $ $player_score;
+        echo 'draw! ';
+        break;
+
+    }
 }
 
-if ($player_value < $dealer_value){
-    echo 'dealer wins!';
-}
 
-if ($player_value == $dealer_value){
-    echo 'draw!';
-}
 
+echo 'player: ' . $player_value . "<br> <br>" . 'dealer: ' . $dealer_value . "<br>";
+
+echo "<br>";
+
+calcwinner($player_value, $dealer_value);
 
 
 
